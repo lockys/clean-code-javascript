@@ -1,6 +1,6 @@
 # clean-code-javascript
 
-## Table of Contents
+## 目錄
   1. [Introduction](#introduction)
   2. [Variables](#variables)
   3. [Functions](#functions)
@@ -41,8 +41,8 @@ shaped into its final form. Finally, we chisel away the imperfections when
 we review it with our peers. Don't beat yourself up for first drafts that need
 improvement. Beat up the code instead!
 
-## **Variables**
-### Use meaningful and pronounceable variable names
+## **變數 (variable)**
+### 使用有意義且可讀的變數名稱
 
 **Bad:**
 ```javascript
@@ -55,7 +55,7 @@ const currentDate = moment().format('YYYY/MM/DD');
 ```
 **[⬆ back to top](#table-of-contents)**
 
-### Use the same vocabulary for the same type of variable
+### 相同類型的變數用相同的單字來命名
 
 **Bad:**
 ```javascript
@@ -70,14 +70,11 @@ getUser();
 ```
 **[⬆ back to top](#table-of-contents)**
 
-### Use searchable names
-We will read more code than we will ever write. It's important that the code we
-do write is readable and searchable. By *not* naming variables that end up
-being meaningful for understanding our program, we hurt our readers.
-Make your names searchable. Tools like
-[buddy.js](https://github.com/danielstjules/buddy.js) and
+### 用好搜尋的變數名稱
+我們讀程式比寫程式還多。因此讓我們的程式碼好搜尋且易讀是很重要的一件事情。如果不將變數名稱命名的有意義的話，會讓讀程式的人難以理解這個程式。
+所以請讓我們的變數是好搜尋且易讀的，[buddy.js](https://github.com/danielstjules/buddy.js) 和
 [ESLint](https://github.com/eslint/eslint/blob/660e0918933e6e7fede26bc675a0763a6b357c94/docs/rules/no-magic-numbers.md)
-can help identify unnamed constants.
+可以幫助我們找出未命名的常數。
 
 **Bad:**
 ```javascript
@@ -96,7 +93,7 @@ setTimeout(blastOff, MILLISECONDS_IN_A_DAY);
 ```
 **[⬆ back to top](#table-of-contents)**
 
-### Use explanatory variables
+### 使用好解讀的變數名稱
 **Bad:**
 ```javascript
 const address = 'One Infinite Loop, Cupertino 95014';
@@ -629,7 +626,7 @@ const addItemToCart = (cart, item) => {
 
 **[⬆ back to top](#table-of-contents)**
 
-### Don't write to global functions
+### 不要寫全域的函式(function)
 Polluting globals is a bad practice in JavaScript because you could clash with another
 library and the user of your API would be none-the-wiser until they get an
 exception in production. Let's think about an example: what if you wanted to
@@ -715,7 +712,7 @@ const totalOutput = programmerOutput
 ```
 **[⬆ back to top](#table-of-contents)**
 
-### Encapsulate conditionals
+### 包裝你的條件判斷
 
 **Bad:**
 ```javascript
@@ -736,7 +733,7 @@ if (shouldShowSpinner(fsmInstance, listNodeInstance)) {
 ```
 **[⬆ back to top](#table-of-contents)**
 
-### Avoid negative conditionals
+### 避免反向的條件判斷
 
 **Bad:**
 ```javascript
@@ -761,13 +758,8 @@ if (isDOMNodePresent(node)) {
 ```
 **[⬆ back to top](#table-of-contents)**
 
-### Avoid conditionals
-This seems like an impossible task. Upon first hearing this, most people say,
-"how am I supposed to do anything without an `if` statement?" The answer is that
-you can use polymorphism to achieve the same task in many cases. The second
-question is usually, "well that's great but why would I want to do that?" The
-answer is a previous clean code concept we learned: a function should only do
-one thing. When you have classes and functions that have `if` statements, you
+### 避免條件判斷
+這聽起來根本就做不到。 當大多數人第一次聽到這個的時候都會說，「沒有 if 的話，該怎麼寫程式做事啊?」 答案是在很多情況下，你可以透過多型(polymorphism)來達成這個目標。第二個常見的問題是，「好啊，但我為什麼要這麼做呢?」這題的答案是我們在上一個 clean code 概念所提到的：每一個函式(function)只該做一件事情。當你的類別(class)或者函式(function)內有多個 if 條件判斷式的時候, you
 are telling your user that your function does more than one thing. Remember,
 just do one thing.
 
@@ -873,10 +865,8 @@ function combine(val1, val2) {
 ```
 **[⬆ back to top](#table-of-contents)**
 
-### Don't over-optimize
-Modern browsers do a lot of optimization under-the-hood at runtime. A lot of
-times, if you are optimizing then you are just wasting your time. [There are good
-resources](https://github.com/petkaantonov/bluebird/wiki/Optimization-killers)
+### 不用過度優化
+現在的瀏覽器其實已經在背後幫你做了非常多的優化. 很多時候，過度地優化只是在浪費自己的時間。 [不錯的參考資源](https://github.com/petkaantonov/bluebird/wiki/Optimization-killers)
 for seeing where optimization is lacking. Target those in the meantime, until
 they are fixed if they can be.
 
@@ -898,10 +888,8 @@ for (let i = 0; i < list.length; i++) {
 ```
 **[⬆ back to top](#table-of-contents)**
 
-### Remove dead code
-Dead code is just as bad as duplicate code. There's no reason to keep it in
-your codebase. If it's not being called, get rid of it! It will still be safe
-in your version history if you still need it.
+### 刪掉沒用的程式碼
+沒用的程式碼就跟重複的程式碼一樣不好。 它們沒有道理留在你的程式裡. 如果他沒有被呼叫到, 拿掉它吧! 如果你之後需要它的話，你還可以用版本管理系統找回它。
 
 **Bad:**
 ```javascript
@@ -929,8 +917,8 @@ inventoryTracker('apples', req, 'www.inventory-awesome.io');
 ```
 **[⬆ back to top](#table-of-contents)**
 
-## **Objects and Data Structures**
-### Use getters and setters
+## **物件與資料結構**
+### 使用 getters 和 setters
 Using getters and setters to access data on objects could be better than simply
 looking for a property on an object. "Why?" you might ask. Well, here's an
 unorganized list of reasons why:
@@ -989,8 +977,8 @@ account.setBalance(100);
 **[⬆ back to top](#table-of-contents)**
 
 
-### Make objects have private members
-This can be accomplished through closures (for ES5 and below).
+### 讓物件有非公開的成員
+這可以用閉包(closures)來達成 (ES5 以下版本的 JavaScript).
 
 **Bad:**
 ```javascript
@@ -1682,10 +1670,8 @@ inventoryTracker.requestItems();
 ```
 **[⬆ back to top](#table-of-contents)**
 
-## **Testing**
-Testing is more important than shipping. If you have no tests or an
-inadequate amount, then every time you ship code you won't be sure that you
-didn't break anything. Deciding on what constitutes an adequate amount is up
+## **測試**
+測試比推出你的程式更重要。如果你的程式沒有測試或者沒有足夠的測試，你無法保證你不會弄壞你的程式碼。Deciding on what constitutes an adequate amount is up
 to your team, but having 100% coverage (all statements and branches) is how
 you achieve very high confidence and developer peace of mind. This means that
 in addition to having a great testing framework, you also need to use a
@@ -1749,10 +1735,10 @@ describe('MakeMomentJSGreatAgain', () => {
 ```
 **[⬆ back to top](#table-of-contents)**
 
-## **Concurrency**
-### Use Promises, not callbacks
-Callbacks aren't clean, and they cause excessive amounts of nesting. With ES2015/ES6,
-Promises are a built-in global type. Use them!
+## **同步化**
+### 用 Promises, 不要用 callbacks (回呼函式)
+用太多 callbacks 會使得程式不乾淨而且會造成巢狀式的程式碼(callbacks hell)。透過 ES2015/ES6,
+Promises 已經是一個內建的型別了。 所以用它吧!
 
 **Bad:**
 ```javascript
@@ -1794,12 +1780,8 @@ get('https://en.wikipedia.org/wiki/Robert_Cecil_Martin')
 ```
 **[⬆ back to top](#table-of-contents)**
 
-### Async/Await are even cleaner than Promises
-Promises are a very clean alternative to callbacks, but ES2017/ES8 brings async and await
-which offer an even cleaner solution. All you need is a function that is prefixed
-in an `async` keyword, and then you can write your logic imperatively without
-a `then` chain of functions. Use this if you can take advantage of ES2017/ES8 features
-today!
+### Async/Await 相較於 Promises 能讓你的程式更乾淨
+Promises 相較於 callbacks 來說是一個讓你程式碼乾淨的好選擇，但是 ES2017/ES8 提供了 async 和 await，它可以讓你的同步化程式更加的簡潔乾淨。你只需要在函式(function)前面加上 async，接下來你就可以避免掉連續的 promise。 如果你了解 ES2017/ES8 的新特性，可以考慮善用它!
 
 **Bad:**
 ```javascript
@@ -1836,9 +1818,8 @@ async function getCleanCodeArticle() {
 ```
 **[⬆ back to top](#table-of-contents)**
 
-
-## **Error Handling**
-Thrown errors are a good thing! They mean the runtime has successfully
+## **錯誤處理**
+拋出錯誤 (throw errors) 不是一件壞事！ They mean the runtime has successfully
 identified when something in your program has gone wrong and it's letting
 you know by stopping function execution on the current stack, killing the
 process (in Node), and notifying you in the console with a stack trace.
