@@ -55,7 +55,7 @@ const currentDate = moment().format('YYYY/MM/DD');
 ```
 **[⬆ back to top](#table-of-contents)**
 
-### 相同類型的變數用相同的單字來命名
+### 用相同的單字來命名同意義的函數 (function) 或變數
 
 **Bad:**
 ```javascript
@@ -78,14 +78,14 @@ getUser();
 
 **Bad:**
 ```javascript
-// What the heck is 86400000 for?
+// 所以 86400000 是什麼意思?
 setTimeout(blastOff, 86400000);
 
 ```
 
 **Good:**
 ```javascript
-// Declare them as capitalized `const` globals.
+// 用全大寫的常數來存它。
 const MILLISECONDS_IN_A_DAY = 86400000;
 
 setTimeout(blastOff, MILLISECONDS_IN_A_DAY);
@@ -110,8 +110,8 @@ saveCityZipCode(city, zipCode);
 ```
 **[⬆ back to top](#table-of-contents)**
 
-### Avoid Mental Mapping
-Explicit is better than implicit.
+### 準確地在程式中表達出你的想法
+用精確的文字來敘述你的程式
 
 **Bad:**
 ```javascript
@@ -122,7 +122,7 @@ locations.forEach((l) => {
   // ...
   // ...
   // ...
-  // Wait, what is `l` for again?
+  // 等一下 ... 所以 l 是什麼意思?
   dispatch(l);
 });
 ```
@@ -141,9 +141,8 @@ locations.forEach((location) => {
 ```
 **[⬆ back to top](#table-of-contents)**
 
-### Don't add unneeded context
-If your class/object name tells you something, don't repeat that in your
-variable name.
+### 不要加不必要的內容
+如果類別(classes)或物件(objects)名稱已經可以充分地表達意思，它的成員變數的名字內就不用再重複了。
 
 **Bad:**
 ```javascript
@@ -196,8 +195,8 @@ function createMicrobrewery(breweryName = 'Hipster Brew Co.') {
 ```
 **[⬆ back to top](#table-of-contents)**
 
-## **Functions**
-### Function arguments (2 or fewer ideally)
+## **函式(function)**
+### 函式參數的數量 (理想地數量是兩個或少於兩個)
 Limiting the amount of function parameters is incredibly important because it
 makes testing your function easier. Having more than three leads to a
 combinatorial explosion where you have to test tons of different cases with
@@ -282,7 +281,7 @@ function isActiveClient(client) {
 ```
 **[⬆ back to top](#table-of-contents)**
 
-### Function names should say what they do
+### 函式的名稱能夠描述函式在做什麼事情
 
 **Bad:**
 ```javascript
@@ -292,7 +291,7 @@ function addToDate(date, month) {
 
 const date = new Date();
 
-// It's hard to to tell from the function name what is added
+// 很難從函式的名稱中看出是什麼加到 date。
 addToDate(date, 1);
 ```
 
